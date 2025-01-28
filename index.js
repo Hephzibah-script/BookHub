@@ -64,22 +64,42 @@ console.log("the parent node is", bookList.parentNode);
 bookList.previousElementSibling.querySelector("p").innerHTML +=
   "<marquee>A Reader Today A Leader Tommorrow!</marquee>";
 
-// DOM EVENT / REMOVING CONTENT
+// DOM EVENT / REMOVING CONTENT / EVENT BUBLING
 // Listening to event and responding to them when they are called is a vital knowledge in coding.
 // By adding event listeners to the different element, we can both listen to and respond to them
 // The event listener takes in 2 parameters: the eventName and the callback fn
 // We want to delete a book from the list of book on the page
 // We have to circle through all the delete btn using forEach
-let btns = document.querySelectorAll("#bookList .delete");
-// let lis = document.querySelectorAll("#bookList li");
-// console.log(li.innerHTML);
+// let btns = document.querySelectorAll("#bookList .delete");
+// btns.forEach((btn) => {
+//   // Then add eventListener for each of the buttons
+//   btn.addEventListener("click", (e) => {
+//     const li = e.target.parentNode;
+//     li.parentNode.removeChild(li);
 
-btns.forEach((btn) => {
-  // Then add eventListener for each of the buttons
-  btn.addEventListener("click", (e) => {
+//     // console.log(e);
+//   });
+// });
+
+// Event Bubbling is a way adding an event a parent in order to carry out a function on any of the child element
+// delete books
+const list = document.querySelector("#bookList ul");
+list.addEventListener("click", (e) => {
+  if (e.target.className == "delete") {
     const li = e.target.parentNode;
-    li.parentNode.removeChild(li);
+    list.removeChild(li);
+  }
+});
 
-    console.log(e);
-  });
+// INTERACTING WITH FORMS AND SUBMIT EVENT
+//ADD BOOKS
+const addBook = document.forms["addBook"];
+
+addBook.addEventListener("submit", (e) => {
+  e.preventDefault();
+  // const value = addBook.querySelector("input[type='text']").value;
+  // console.log(value);
+
+  //We could do it in a cleaner way by adding an id to the HTML element, and using the dot(.) notation say addBook.(id from the HTML).value
+  console.log(addBook.newBook.value);
 });
