@@ -1,0 +1,145 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Corbel", Arial, sans-serif;
+  margin: 0;
+  line-height: 1.5;
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2 {
+  font-weight: normal;
+}
+
+#wrapper {
+  width: 90%;
+  max-width: 960px;
+  margin: 20px auto;
+  border-radius: 7px;
+  box-shadow: 0px 1px 6px rgb(141, 141, 141);
+  box-sizing: border-box;
+  padding: 0 0 20px;
+  overflow: hidden;
+  border: 1px solid #d3d3d3;
+}
+
+#page-banner {
+  background: #eee;
+  padding: 10px 0;
+}
+
+#page-banner h1,
+#page-banner p {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+}
+
+#page-banner input {
+  width: 90%;
+  max-width: 300px;
+  margin: 20px auto;
+  display: block;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #444;
+}
+
+#bookList,
+#add-book,
+#tabbed-content {
+  margin: 30px;
+}
+
+#bookList ul,
+#tabbed-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#bookList li {
+  padding: 20px;
+  border-left: 5px solid #ddd;
+  margin: 20px 10px;
+}
+
+#bookList li:hover {
+  border-color: #491974;
+}
+
+.delete {
+  float: right;
+  background: #9361bf;
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.delete:hover {
+  background: #491974;
+  cursor: pointer;
+}
+
+#add-book {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 70px;
+}
+
+#add-book input {
+  width: 80%;
+  max-width: 300px;
+  display: block;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #444;
+}
+
+#add-book button {
+  float: right;
+  background: #9361bf;
+  padding: 11px 33px;
+  border-left: 1px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  color: #fff;
+  border: none;
+}
+
+#footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#footer p {
+  padding: 20px;
+  letter-spacing: 10px;
+}
+
+#footer i {
+  padding-right: 10px;
+  padding-bottom: 40px;
+}
+
+#footer a {
+  font-weight: bold;
+  font-size: 1.5rem;
+  letter-spacing: normal;
+  color: #000;
+}
+
+.footerIcons {
+  display: flex;
+  justify-content: center;
+}
