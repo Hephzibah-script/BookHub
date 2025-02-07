@@ -94,12 +94,12 @@ list.addEventListener("click", (e) => {
 // INTERACTING WITH FORMS AND SUBMIT EVENT
 //ADD BOOKS
 const addBook = document.forms["addBook"];
-
 addBook.addEventListener("submit", (e) => {
   e.preventDefault();
   // const value = addBook.querySelector("input[type='text']").value;
   // console.log(value);
-
   //We could do it in a cleaner way by adding an id to the HTML element, and using the dot(.) notation say addBook.(id from the HTML).value
   console.log(addBook.newBook.value);
 });
+
+//create element
