@@ -13,10 +13,10 @@
   <body>
     <div id="wrapper">
       <header>
-        <div id="page-banner">
+        <div id="pageBanner">
           <h1 class="title">BookHub</h1>
           <p>Everyone is a Leader, and they are made here.</p>
-          <form id="search-books">
+          <form id="searchBooks">
             <input type="text" placeholder="Search books..." />
           </form>
         </div>
@@ -41,11 +41,38 @@
             <span class="delete">delete</span>
           </li>
         </ul>
+        <div class="hide">
+          <input type="checkbox" id="hide" />
+          <label for="hide">Hide all books</label>
+        </div>
       </div>
+
       <form id="addBook">
         <input type="text" id="newBook" placeholder="Add a book..." />
         <button>Add</button>
       </form>
+      <div id="tabbedContent">
+        <ul class="tabs">
+          <li data-target="#about" class="active">About</li>
+          <li data-target="#contact">Contacts</li>
+        </ul>
+        <div class="panel active" id="about">
+          <p><b>About Me</b></p>
+          <p>
+            Hi, i'm Hephzibah I built this website from scratch. Visit my github
+            page<a
+              href="https://github.com/Hephzibah-script/BookHub/settings/pages"
+            >
+              @Hephzibah-script</a
+            >
+            to download the code
+          </p>
+        </div>
+        <div class="panel" id="contact">
+          <p><b>Contact us</b></p>
+          <p><em>Follow me</em> via my social media handles</p>
+        </div>
+      </div>
     </div>
     <!-- PAGE CONTENT END -->
     <!-- footer -->

@@ -21,7 +21,7 @@ Array.from(books).forEach((book) => {
 // bookList.innerHTML += "<p>Book titles</p>"; //This Appends to the original content
 
 //Understanding Nodes. Every element that make up the DOM are also nodes. DOM Traversal (PARENT/CHILD,SIBLINGS)
-const pageBanner = document.querySelector("#page-banner");
+const pageBanner = document.querySelector("#pageBanner");
 //nodeType show us the type of node we are looking at in the number form
 console.log("Page banner node type is:", pageBanner.nodeType);
 //nodeName shows us the name of the node we are looking at
@@ -96,10 +96,65 @@ list.addEventListener("click", (e) => {
 const addBook = document.forms["addBook"];
 addBook.addEventListener("submit", (e) => {
   e.preventDefault();
-  // const value = addBook.querySelector("input[type='text']").value;
+  const value = addBook.querySelector('input[type="text"]').value;
   // console.log(value);
-  //We could do it in a cleaner way by adding an id to the HTML element, and using the dot(.) notation say addBook.(id from the HTML).value
-  console.log(addBook.newBook.value);
+
+  //create elements
+  const li = document.createElement("li");
+  const bookName = document.createElement("span");
+  const delBtn = document.createElement("span");
+
+  //add content
+  delBtn.textContent = "delete";
+  bookName.textContent = value;
+
+  //add classes
+  bookName.classList.add("name");
+  delBtn.classList.add("delete");
+
+  //append to document
+  li.appendChild(bookName);
+  li.appendChild(delBtn);
+  list.appendChild(li);
 });
 
-//create element
+//checkboxes & Change Events to hide books
+const hideBox = document.querySelector("#hide");
+hideBox.addEventListener("change", (e) => {
+  if (hideBox.checked) {
+    list.style.display = "none";
+  } else {
+    list.style.display = "block";
+  }
+});
+
+//Search filter without the filter method
+const searchBar = document.forms["searchBooks"].querySelector("input");
+searchBar.addEventListener("keyup", (e) => {
+  const term = e.target.value.toLocaleLowerCase();
+  const books = list.getElementsByTagName("li");
+  Array.from(books).forEach((book) => {
+    const title = book.firstElementChild.textContent;
+    if (title.toLocaleLowerCase().indexOf(term) != -1) {
+      book.style.display = "block";
+    } else {
+      book.style.display = "none";
+    }
+  });
+});
+
+//tabbed content
+const tabs = document.querySelector(".tabs");
+const panels = document.querySelectorAll(".panel");
+tabs.addEventListener("click", (e) => {
+  if (e.target.tagName == "LI") {
+    const targetPanel = document.querySelector(e.target.dataset.target);
+    panels.forEach((panel) => {
+      if (panel == targetPanel) {
+        panel.classList.add("active");
+      } else {
+        panel.classList.remove("active");
+      }
+    });
+  }
+});

@@ -28,18 +28,18 @@ h2 {
   border: 1px solid #d1c4e9;
 }
 
-#page-banner {
+#pageBanner {
   background: #eee;
   padding: 30px;
 }
 
-#page-banner h1,
-#page-banner p {
+#pageBanner h1,
+#pageBanner p {
   text-align: center;
   margin: 10px 0;
 }
 
-#page-banner input {
+#pageBanner input {
   width: 90%;
   max-width: 300px;
   margin: 20px auto;
@@ -104,6 +104,12 @@ h2 {
   /* padding: 70px; */
 }
 
+.hide {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  gap: 7px;
+}
 #addBook input {
   width: 100%;
   max-width: fit-content;
@@ -125,6 +131,41 @@ h2 {
   color: #fff;
   border: none;
   cursor: pointer;
+}
+
+#tabbedContent {
+  margin: 30px;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#tabbedContent li {
+  display: flex;
+  padding: 10px 14px;
+  background: #9361bf;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+#tabbedContent .panel {
+  display: none;
+  border: 1px solid #ddd;
+  padding: 0 10px;
+  border-radius: 4px;
+}
+
+.panel p {
+  margin: 20px;
+}
+
+#tabbedContent .panel.active {
+  display: block;
 }
 
 #footer {
