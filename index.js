@@ -129,19 +129,71 @@ hideBox.addEventListener("change", (e) => {
 });
 
 //Search filter without the filter method
+// Method #1
+// const searchBar = document.forms["searchBooks"].querySelector("input");
+// searchBar.addEventListener("keyup", (e) => {
+//   const term = e.target.value.toLocaleLowerCase();
+//   const books = list.getElementsByTagName("li");
+//   Array.from(books).forEach((book) => {
+//     const title = book.firstElementChild.textContent;
+//     if (title.toLocaleLowerCase().indexOf(term) != -1) {
+//       book.style.display = "block";
+//     } else {
+//       book.style.display = "none";
+//     }
+//   });
+// });
+
+// Method #2
+//Uses .trim() to clean input.
+//Uses .includes() instead of indexOf() for better readability.
+//Ensures list is correctly selected (#book-list).
+// const searchBar = document.forms["searchBooks"].querySelector("input");
+// searchBar.addEventListener("keyup", (e) => {
+//   const term = e.target.value.trim().toLowerCase(); // Trim spaces and convert to lowercase
+//   const books = list.getElementsByTagName("li");
+
+//   Array.from(books).forEach((book) => {
+//     const title = book.firstElementChild.textContent.toLowerCase();
+//     book.style.display = title.includes(term) ? "block" : "none";
+//   });
+// });
+
 const searchBar = document.forms["searchBooks"].querySelector("input");
 searchBar.addEventListener("keyup", (e) => {
-  const term = e.target.value.toLocaleLowerCase();
-  const books = list.getElementsByTagName("li");
-  Array.from(books).forEach((book) => {
-    const title = book.firstElementChild.textContent;
-    if (title.toLocaleLowerCase().indexOf(term) != -1) {
-      book.style.display = "block";
-    } else {
-      book.style.display = "none";
-    }
+  const term = e.target.value.trim().toLowerCase();
+
+  Array.from(list.getElementsByTagName("li")).forEach((book) => {
+    book.style.display = book.firstElementChild.textContent
+      .toLowerCase()
+      .includes(term)
+      ? "block"
+      : "none";
   });
 });
+
+// Method #3
+//Here's the refactored code using the .filter() method instead of forEach().
+//💡 Key Changes:
+//The Array.from(books).filter() method is used to create a filtered list.
+//The .forEach() method is then applied to hide/show books accordingly.
+// const searchBar = document.forms["searchBooks"].querySelector("input");
+// searchBar.addEventListener("keyup", (e) => {
+//   const term = e.target.value.trim().toLowerCase(); // Trim spaces and convert to lowercase
+//   const books = Array.from(list.getElementsByTagName("li"));
+
+//   books
+//     .filter((book) =>
+//       book.firstElementChild.textContent.toLowerCase().includes(term)
+//     )
+//     .forEach((book) => (book.style.display = "block"));
+
+//   books
+//     .filter(
+//       (book) => !book.firstElementChild.textContent.toLowerCase().includes(term)
+//     )
+//     .forEach((book) => (book.style.display = "none"));
+// });
 
 //tabbed content
 const tabs = document.querySelector(".tabs");
